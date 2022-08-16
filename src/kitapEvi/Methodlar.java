@@ -1,8 +1,9 @@
 package kitapEvi;
 
+import java.nio.charset.CoderMalfunctionError;
 import java.util.*;
 
-public class Methodlar extends AnaMenu {
+public class Methodlar extends Odeme {
 
     static int sifre = 12;
 
@@ -26,11 +27,11 @@ public class Methodlar extends AnaMenu {
     int satilanKitap;
     int gelenStok;
     int kitap;
-    Map<Integer, String> kitapListMap2 = kitapListMapOlustur();
+   // Map<Integer, String> kitapListMap2 = kitapListMapOlustur();
     Scanner scan = new Scanner(System.in);
-    List<Integer> sepetList = new ArrayList<>();
+  //  List<Integer> sepetList = new ArrayList<>();
 
-    public Map<Integer, String> kitapListMapOlustur() {
+   /* public Map<Integer, String> kitapListMapOlustur() {
         Map<Integer, String> kitapListMap2 = new HashMap<>();
         kitapListMap2.put(1001, "Pinokya, Carlo Colladi, 2017, 10, 100, 5, 95");
         kitapListMap2.put(1002, "Digital Kale, Don Brown, 2001, 2, 50, 10, 40");
@@ -46,7 +47,7 @@ public class Methodlar extends AnaMenu {
         kitapListMap2.put(1006, "Origin, Don Brown, 2001, 5, 10, 7 ,3");
         kitapListMap2.put(1007, "Cehennem, Don Brown, 2008, 5, 10, 9 ,1");
         return kitapListMap2;
-    }
+    }*/
 
     public void satinAlma() {
         System.out.println("Lutfen secim yapiniz");
@@ -73,7 +74,7 @@ public class Methodlar extends AnaMenu {
                 kitapSecim(isimSecim);
                 break;
             case 3:
-                odeme();
+               odeme();
                 break;
             case 4:
                 menu();
@@ -181,33 +182,9 @@ public class Methodlar extends AnaMenu {
     }
 
 
-    List<String> musteriBilgileri = new ArrayList<>();
-
-    void odeme() {
-        System.out.println("Odeme ekranına Hosgeldınız");
-        musteriBilgiler();
-    }
-
-    void musteriBilgiler() {
-        System.out.println("adınızı gırınız");
-        String isim = scan.next();
-        System.out.println("Soyadınızı gırınız :");
-        String soyIsım = scan.next();
-        musteriBilgileri.add(isim);
-        musteriBilgileri.add(soyIsım);
-        System.out.println(musteriBilgileri + " almak ıstedıgınz kıtaplar" + getKitap());
-    }
-
-    String getKitap() {
-        String sepetdekiKitaplar = "";
-        for (int i = 0; i < sepetList.size(); i++) {
-            //     System.out.println(kitapSecim(kitapListMap2.get(sepetList.get(i))));
-            sepetdekiKitaplar += kitapListMap2.get(sepetList.get(i));
 
 
-        }
-        return sepetdekiKitaplar;
-    }
+
 
 public void yetkiliGiris(){
     System.out.println("lutfen parolayi giriniz:");
