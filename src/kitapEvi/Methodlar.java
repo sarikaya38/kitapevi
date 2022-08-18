@@ -13,7 +13,7 @@ public class Methodlar extends Odeme {
 
 
     void menu() {
-        mapDeneme(1001,"100000");
+      //  mapDeneme(1001,"100000");
         System.out.println("==================\n======Welcome=====\n==Java BookStore==\n==================");
         System.out.println("1. Kitap arama ");
         System.out.println("2. Kitap Listesi");
@@ -121,7 +121,11 @@ public class Methodlar extends Odeme {
         for (Map.Entry<Integer, String> each : entrySeti) {
             entryValue = each.getValue();
             entryArr = entryValue.split(", ");
-            System.out.println(each.getKey() + entryArr[0] + " " + entryArr[1] + " " + entryArr[2] + " " + entryArr[3]);
+           // entryArr[1]="sınan";
+          //  each.setValue(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2] + ", " + entryArr[3]);
+
+           System.out.println(each.getKey() + entryArr[0] + " " + entryArr[1] + " " + entryArr[2] + " " + entryArr[3]);
+            System.out.println(kitapListMap2);
         }
         kitapSecim(isimSecim);
     }
@@ -200,17 +204,19 @@ satinAlma();
 public void yetkiliGiris(){
     System.out.println("lutfen parolayi giriniz:");
     int girilenSifre= scan.nextInt();
-    if (girilenSifre==sifre){
-
-
+    if (girilenSifre==sifre) {
+    }
+kitapList();
 
 
     }
-}
 
 public void mapDeneme(int kod,String fiyat){
 
     System.out.println("fıyatını degıstırmek ıstedıgınzı urunun kodunu gırınız.");
+  kod=scan.nextInt();
+    System.out.println("fıyatı gırınız");
+  fiyat=scan.next();
    if (kitapListMap2.containsKey(kod)){
        Set<Map.Entry<Integer, String>> entrySeti = kitapListMap2.entrySet();
        String entryValue;
@@ -223,13 +229,13 @@ public void mapDeneme(int kod,String fiyat){
            entryArr = entryValue.split(", ");
            for (int i = 0; i < entryArr.length; i++) {
               entryArr[4].replaceAll(entryArr[4],fiyat);
-                   System.out.println(entryArr[4]);
+              //     System.out.println(entryArr[4]);
 
                }
            }
        }
 
-
+    System.out.println(kitapListMap2);
    }
 
 
