@@ -13,6 +13,7 @@ public class Methodlar extends Odeme {
 
 
     void menu() {
+        mapDeneme(1001,"100000");
         System.out.println("==================\n======Welcome=====\n==Java BookStore==\n==================");
         System.out.println("1. Kitap arama ");
         System.out.println("2. Kitap Listesi");
@@ -20,6 +21,7 @@ public class Methodlar extends Odeme {
         System.out.println("4. Yetkili Giris");
         System.out.println("5. Cikis");
         menuSecim();
+
     }
 
     String isimSecim;
@@ -206,14 +208,29 @@ public void yetkiliGiris(){
     }
 }
 
+public void mapDeneme(int kod,String fiyat){
+
+    System.out.println("fıyatını degıstırmek ıstedıgınzı urunun kodunu gırınız.");
+   if (kitapListMap2.containsKey(kod)){
+       Set<Map.Entry<Integer, String>> entrySeti = kitapListMap2.entrySet();
+       String entryValue;
+       String[] entryArr;
+       List<Integer> kitapList = new ArrayList<>();
 
 
+       for (Map.Entry<Integer, String> each : entrySeti) {
+           entryValue = each.getValue();
+           entryArr = entryValue.split(", ");
+           for (int i = 0; i < entryArr.length; i++) {
+              entryArr[4].replaceAll(entryArr[4],fiyat);
+                   System.out.println(entryArr[4]);
+
+               }
+           }
+       }
 
 
-
-
-
-
+   }
 
 
 
@@ -222,4 +239,19 @@ public void yetkiliGiris(){
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
