@@ -22,6 +22,7 @@ public class Odeme {
         musteriBilgileri.add(isim);
         musteriBilgileri.add(soyIsım);
         System.out.println(musteriBilgileri + " almak ıstedıgınz kıtaplar" + getKitap());
+
     }
 
     String getKitap() {

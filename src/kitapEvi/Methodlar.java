@@ -65,6 +65,7 @@ public class Methodlar extends Odeme {
                 if (sepetCikis.equals("Y")) {
                     kitapSecim(isimSecim);
 
+
                 } else if (sepetCikis.equals("Q")) {
                     odeme();
                 }
@@ -81,7 +82,7 @@ public class Methodlar extends Odeme {
                 break;
             default:
                 System.out.println("Lutfen tekrar secim yapiniz");
-               satinAlma();
+              // satinAlma();
                break;
         }
     }
@@ -138,7 +139,7 @@ public class Methodlar extends Odeme {
             for (int i = 0; i < entryArr.length; i++) {
                 if (entryArr[i].contains(isimSecim)) {
                     System.out.println(y + ". " + entryArr[0] + " " + entryArr[1] + " " + entryArr[2] + " " + entryArr[3]);
-                    kitap = each.getKey();
+                    //kitap = each.getKey();
                     kitapList.add(each.getKey());
                     y++;
                 }
@@ -159,25 +160,33 @@ public class Methodlar extends Odeme {
 
         this.isimSecim = isimSecim;// gereksiz olabilir kontol et*/
 
-        satinAlma();
+
            try {
                if (kitapListMap2.containsKey(Integer.parseInt(isimSecim))) {
-                   kitap = Integer.parseInt(isimSecim);
+                  kitap= (Integer.parseInt(isimSecim)) ;
                    System.out.println(kitapListMap2.get(kitap));// kitabin ilk 4 bilgisi gelmesi ayarlanacakgi
                    System.out.println(kitap);
                    satinAlma();
-               } else {
-               System.out.println("Aradiginiz kitap bulunamamistir.\n Bir ust menuye yonlendiriliyorsunuz...");
-               menu();
-                }
+               } /*try {
 
+                   //if (!kitapListMap2.containsKey(Integer.parseInt(isimSecim))) {
+
+
+                   //    System.out.println("Aradiginiz kitap bulunamamistir.\n Bir ust menuye yonlendiriliyorsunuz...");
+                   //    menu();
+                 /  }
+               }catch (Exception e){
+1
+
+               }
+*/
 
 
            }catch (Exception e){
-             //  System.out.println("Aradiginiz kitap bulunamamistir.\n Bir ust menuye yonlendiriliyorsunuz...catch");
-            //   menu();
+               //System.out.println("Aradiginiz kitap bulunamamistir.\n Bir ust menuye yonlendiriliyorsunuz...catch");
+              // menu();
            }
-
+satinAlma();
 
     }
 
