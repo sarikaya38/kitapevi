@@ -3,27 +3,30 @@ package kitapEvi;
 import java.util.*;
 
 public class BilgiDegistirme {
+    BilgiDegistirme() {
+        getMenu();
+    }
+
     Scanner scan = new Scanner(System.in);
 
-    Map<Integer, String> kitapListMAp = kitapListMapOlustur();
-    String menu = "";
-    String kitapBilgisiDegistirme = "";
+    static Map<Integer, String> kitapListMAp = kitapListMapOlustur();
+
+
     int kitapBilgiMenuSecim = 0;
     int degisiklikYapilacakKitap;
 
     String[] entryArr;
     String entryValue = kitapListMAp.get(degisiklikYapilacakKitap);
-
-
-    public static void main(String[] args) {
+    String degisecekBilgi ="";
+    String degisiklik;
+ public static void main(String[] args) {
         BilgiDegistirme obj1 = new BilgiDegistirme();
-        obj1.kitapEkleme();
-        // obj1.getKitapBilgisiDegistirme();
-        System.out.println(obj1.kitapListMAp);
+        System.out.println(kitapListMAp);
+
 
     }
 
-    public Map<Integer, String> kitapListMapOlustur() {
+    public static Map<Integer, String> kitapListMapOlustur() {
         Map<Integer, String> kitapListMap = new HashMap<>();
         kitapListMap.put(1001, "Pinokya, Carlo Colladi, 2017, 10, 100, 5, 95, 50");
         kitapListMap.put(1002, "Digital Kale, Don Brown, 2001, 2, 50, 10, 40, 60");
@@ -52,13 +55,15 @@ public class BilgiDegistirme {
                 kitapEkleme();
                 break;
             case 2:
-
+                System.out.println("Degisiklik yapmak istediginiz kitabi giriniz.");
+                degisiklikYapilacakKitap = scan.nextInt();
+                kitapSilme(degisiklikYapilacakKitap);
                 break;
-
             case 3:
                 getKitapBilgisiDegistirme();
                 break;
             case 4:
+                Methodlar menu = new Methodlar();
                 break;
             default:
                 System.out.println("Yanlis secim yaptiniz tekrar giris yapiniz.");
@@ -82,23 +87,25 @@ public class BilgiDegistirme {
         kitapBilgiMenuSecim = scan.nextInt();
         System.out.println("Yapacak oldugunuz degisikligi giriniz:");
         String degisiklik = scan.next();
-        bilgiDegistirme(kitapBilgiMenuSecim, degisiklik);
+      getKitapSecim(degisiklikYapilacakKitap,degisiklik);
+
     }
 
-    public void getKitapSecim(int degisiklikYapilacakKitap) {
+    public void getKitapSecim(int degisiklikYapilacakKitap,String degisiklik) {
 
-        String entryValue = kitapListMAp.get(degisiklikYapilacakKitap);
+       entryValue = kitapListMAp.get(degisiklikYapilacakKitap);
         System.out.println(entryValue);
-        this.entryArr = entryValue.split(", ");
-
-    }
-
-    public void bilgiDegistirme(int kitapBilgiMenuSecim, String degisiklik) {
-        getKitapSecim(degisiklikYapilacakKitap);
+        entryArr = entryValue.split(", ");
         entryArr[kitapBilgiMenuSecim - 1] = degisiklik;
-        kitapListMAp.replace(degisiklikYapilacakKitap, Arrays.toString(entryArr));
+        for (String s : entryArr) {
+            degisecekBilgi += s + ", ";
+        }
+        kitapSilme(degisiklikYapilacakKitap);
+        kitapListMAp.put(degisiklikYapilacakKitap, degisecekBilgi);
         System.out.println(kitapListMAp);
+
     }
+
 
     public void kitapEkleme() {
 
@@ -119,10 +126,24 @@ public class BilgiDegistirme {
         String kitapKalanStok = kitapGelenStok;
         System.out.println("Kitap Fiyati giriniz:");
         String kitapFiyati = scan.next();
-        entryValue = kitapAdi + ", " + kitapYazari + ", " + kitapBasimYili + ", " + kitapBasimSayisi + ", " + kitapGelenStok + ", " + kitapSatilanStok + ", " + kitapKalanStok + ", " + kitapFiyati;
+        entryValue = kitapAdi + ", " + kitapYazari + ", " + kitapBasimYili + ", " + kitapBasimSayisi + ", "
+                + kitapGelenStok + ", " + kitapSatilanStok + ", " + kitapKalanStok + ", " + kitapFiyati;
         kitapListMAp.put(kitapId, entryValue);
 
     }
+
+    public void kitapSilme(int degisiklikYapilacakKitap) {
+        kitapListMAp.remove(degisiklikYapilacakKitap);
+        System.out.println("Silme islemi sonrasi  yeni Kitap Listesi"+kitapListMAp);
+    }
+
+ /*   public void arrayiStringeCevirme(){
+        for (int i = 0; i <entryArr.length ; i++) {
+            degisecekBilgi +=entryArr[i]+", ";
+        }
+        System.out.println(degisecekBilgi);
+    }*/
+
 }
 
 

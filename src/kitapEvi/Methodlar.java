@@ -7,10 +7,10 @@ public class Methodlar extends Odeme {
 
     static int sifre = 12;
 
-    Methodlar() {
+     Methodlar() {
         menu();
     }
-
+    Map<Integer, String> kitapListMAp=BilgiDegistirme.kitapListMAp;
 
     void menu() {
         System.out.println("==================\n======Welcome=====\n==Java BookStore==\n==================");
@@ -31,23 +31,7 @@ public class Methodlar extends Odeme {
     Scanner scan = new Scanner(System.in);
   //  List<Integer> sepetList = new ArrayList<>();
 
-   /* public Map<Integer, String> kitapListMapOlustur() {
-        Map<Integer, String> kitapListMap2 = new HashMap<>();
-        kitapListMap2.put(1001, "Pinokya, Carlo Colladi, 2017, 10, 100, 5, 95");
-        kitapListMap2.put(1002, "Digital Kale, Don Brown, 2001, 2, 50, 10, 40");
-        kitapListMap2.put(1003, "Silinis, Hess Greatsen, 2008, 5, 75, 35, 40");
-        kitapListMap2.put(1004, "3 un Cekilisi, Stephen King, 2010, 15, 74, 44, 30");
-        kitapListMap2.put(1005, "Melekler ve Seytanlar, Don Brown, 2008, 15, 150, 10, 140");
-        kitapListMap2.put(1008, "Harry Poter1, J.K.Rowling., 2001, 5, 10, 1, 9");
-        kitapListMap2.put(1009, "Harry Poter2, J.K.Rowling., 2002, 5, 10, 1, 9");
-        kitapListMap2.put(1010, "Harry Poter3, J.K.Rowling., 2003, 5, 10, 1, 9");
-        kitapListMap2.put(1011, "Harry Poter4, J.K.Rowling., 2004, 5, 10, 1, 9");
-        kitapListMap2.put(1012, "Harry Poter5, J.K.Rowling., 2006, 5, 10, 1, 9");
-        kitapListMap2.put(1013, "Harry Poter6, J.K.Rowling., 2008, 5, 10, 1, 9");
-        kitapListMap2.put(1006, "Origin, Don Brown, 2001, 5, 10, 7 ,3");
-        kitapListMap2.put(1007, "Cehennem, Don Brown, 2008, 5, 10, 9 ,1");
-        return kitapListMap2;
-    }*/
+
 
     public void satinAlma() {
         System.out.println("Lutfen secim yapiniz");
@@ -100,7 +84,7 @@ public class Methodlar extends Odeme {
                 odeme();
                 break;
             case 4:
-                //yetkili giris yapilacak
+                yetkiliGiris();
                 break;
             case 5:
                 break;
@@ -112,7 +96,7 @@ public class Methodlar extends Odeme {
     }
 
     public void kitapList() {
-        Set<Map.Entry<Integer, String>> entrySeti = kitapListMap2.entrySet();
+        Set<Map.Entry<Integer, String>> entrySeti = kitapListMAp.entrySet();
         String entryValue;
         String[] entryArr;
         List<Integer> kitapList = new ArrayList<>();
@@ -127,7 +111,7 @@ public class Methodlar extends Odeme {
     public void kitapSecim(String isimSecim) {
         System.out.println("aramak istediginiz id, isim yazar,basim yili veya baski girinz:");
         isimSecim = scan.next();
-        Set<Map.Entry<Integer, String>> entrySeti = kitapListMap2.entrySet();
+        Set<Map.Entry<Integer, String>> entrySeti = kitapListMAp.entrySet();
         String entryValue;
         String[] entryArr;
         List<Integer> kitapList = new ArrayList<>();
@@ -162,9 +146,9 @@ public class Methodlar extends Odeme {
 
 
            try {
-               if (kitapListMap2.containsKey(Integer.parseInt(isimSecim))) {
+               if (kitapListMAp.containsKey(Integer.parseInt(isimSecim))) {
                   kitap= (Integer.parseInt(isimSecim)) ;
-                   System.out.println(kitapListMap2.get(kitap));// kitabin ilk 4 bilgisi gelmesi ayarlanacakgi
+                   System.out.println(kitapListMAp.get(kitap));// kitabin ilk 4 bilgisi gelmesi ayarlanacakgi
                    System.out.println(kitap);
                    satinAlma();
                } /*try {
@@ -199,10 +183,7 @@ public void yetkiliGiris(){
     System.out.println("lutfen parolayi giriniz:");
     int girilenSifre= scan.nextInt();
     if (girilenSifre==sifre){
-
-
-
-
+BilgiDegistirme yetkili=new BilgiDegistirme();
     }
 }
 
