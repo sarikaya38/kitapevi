@@ -11,9 +11,9 @@ public class Methodlar extends Odeme {
         menu();
     }
 
+    Map<Integer, String> kitapListMAp = BilgiDegistirme.kitapListMAp;
 
     void menu() {
-      //  mapDeneme(1001,"100000");
         System.out.println("==================\n======Welcome=====\n==Java BookStore==\n==================");
         System.out.println("1. Kitap arama ");
         System.out.println("2. Kitap Listesi");
@@ -21,35 +21,17 @@ public class Methodlar extends Odeme {
         System.out.println("4. Yetkili Giris");
         System.out.println("5. Cikis");
         menuSecim();
-
     }
 
+    int y = 1;
     String isimSecim;
     int kalanStok;
     int satilanKitap;
     int gelenStok;
     int kitap;
-   // Map<Integer, String> kitapListMap2 = kitapListMapOlustur();
-    Scanner scan = new Scanner(System.in);
-  //  List<Integer> sepetList = new ArrayList<>();
 
-   /* public Map<Integer, String> kitapListMapOlustur() {
-        Map<Integer, String> kitapListMap2 = new HashMap<>();
-        kitapListMap2.put(1001, "Pinokya, Carlo Colladi, 2017, 10, 100, 5, 95");
-        kitapListMap2.put(1002, "Digital Kale, Don Brown, 2001, 2, 50, 10, 40");
-        kitapListMap2.put(1003, "Silinis, Hess Greatsen, 2008, 5, 75, 35, 40");
-        kitapListMap2.put(1004, "3 un Cekilisi, Stephen King, 2010, 15, 74, 44, 30");
-        kitapListMap2.put(1005, "Melekler ve Seytanlar, Don Brown, 2008, 15, 150, 10, 140");
-        kitapListMap2.put(1008, "Harry Poter1, J.K.Rowling., 2001, 5, 10, 1, 9");
-        kitapListMap2.put(1009, "Harry Poter2, J.K.Rowling., 2002, 5, 10, 1, 9");
-        kitapListMap2.put(1010, "Harry Poter3, J.K.Rowling., 2003, 5, 10, 1, 9");
-        kitapListMap2.put(1011, "Harry Poter4, J.K.Rowling., 2004, 5, 10, 1, 9");
-        kitapListMap2.put(1012, "Harry Poter5, J.K.Rowling., 2006, 5, 10, 1, 9");
-        kitapListMap2.put(1013, "Harry Poter6, J.K.Rowling., 2008, 5, 10, 1, 9");
-        kitapListMap2.put(1006, "Origin, Don Brown, 2001, 5, 10, 7 ,3");
-        kitapListMap2.put(1007, "Cehennem, Don Brown, 2008, 5, 10, 9 ,1");
-        return kitapListMap2;
-    }*/
+    Scanner scan = new Scanner(System.in);
+
 
     public void satinAlma() {
         System.out.println("Lutfen secim yapiniz");
@@ -77,15 +59,15 @@ public class Methodlar extends Odeme {
                 kitapSecim(isimSecim);
                 break;
             case 3:
-               odeme();
+                odeme();
                 break;
             case 4:
                 menu();
                 break;
             default:
                 System.out.println("Lutfen tekrar secim yapiniz");
-              // satinAlma();
-               break;
+                // satinAlma();
+                break;
         }
     }
 
@@ -102,7 +84,7 @@ public class Methodlar extends Odeme {
                 odeme();
                 break;
             case 4:
-                //yetkili giris yapilacak
+                yetkiliGiris();
                 break;
             case 5:
                 break;
@@ -114,18 +96,14 @@ public class Methodlar extends Odeme {
     }
 
     public void kitapList() {
-        Set<Map.Entry<Integer, String>> entrySeti = kitapListMap2.entrySet();
+        Set<Map.Entry<Integer, String>> entrySeti = kitapListMAp.entrySet();
         String entryValue;
         String[] entryArr;
         List<Integer> kitapList = new ArrayList<>();
         for (Map.Entry<Integer, String> each : entrySeti) {
             entryValue = each.getValue();
             entryArr = entryValue.split(", ");
-           // entryArr[1]="sınan";
-          //  each.setValue(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2] + ", " + entryArr[3]);
-
-           System.out.println(each.getKey() + entryArr[0] + " " + entryArr[1] + " " + entryArr[2] + " " + entryArr[3]);
-            System.out.println(kitapListMap2);
+            System.out.println(each.getKey() + entryArr[0] + " " + entryArr[1] + " " + entryArr[2] + " " + entryArr[3]);
         }
         kitapSecim(isimSecim);
     }
@@ -133,19 +111,18 @@ public class Methodlar extends Odeme {
     public void kitapSecim(String isimSecim) {
         System.out.println("aramak istediginiz id, isim yazar,basim yili veya baski girinz:");
         isimSecim = scan.next();
-        Set<Map.Entry<Integer, String>> entrySeti = kitapListMap2.entrySet();
+        Set<Map.Entry<Integer, String>> entrySeti = kitapListMAp.entrySet();
         String entryValue;
         String[] entryArr;
         List<Integer> kitapList = new ArrayList<>();
         int secim = 0;
-        int y = 1;
-       for (Map.Entry<Integer, String> each : entrySeti) {
+        y = 1;
+        for (Map.Entry<Integer, String> each : entrySeti) {
             entryValue = each.getValue();
             entryArr = entryValue.split(", ");
             for (int i = 0; i < entryArr.length; i++) {
                 if (entryArr[i].contains(isimSecim)) {
                     System.out.println(y + ". " + entryArr[0] + " " + entryArr[1] + " " + entryArr[2] + " " + entryArr[3]);
-                    //kitap = each.getKey();
                     kitapList.add(each.getKey());
                     y++;
                 }
@@ -154,26 +131,24 @@ public class Methodlar extends Odeme {
 
 // if in icine try catch yazilacak string ifade icin
 
-            if ((y > 2)) {
-                System.out.println("Lutfen almak istediginiz kitabi giriniz");
-                secim = scan.nextInt();
-                System.out.println("almak istediginiz kitap" + kitapList.get(secim - 1));
-                this.kitap = kitapList.get(secim - 1);
-            }
-
-
+        if ((y > 2)) {
+            System.out.println("Lutfen almak istediginiz kitabi giriniz");
+            secim = scan.nextInt();
+            System.out.println("almak istediginiz kitap" + kitapList.get(secim - 1));
+            this.kitap = kitapList.get(secim - 1);
+        }
 
 
         this.isimSecim = isimSecim;// gereksiz olabilir kontol et*/
 
 
-           try {
-               if (kitapListMap2.containsKey(Integer.parseInt(isimSecim))) {
-                  kitap= (Integer.parseInt(isimSecim)) ;
-                   System.out.println(kitapListMap2.get(kitap));// kitabin ilk 4 bilgisi gelmesi ayarlanacakgi
-                   System.out.println(kitap);
-                   satinAlma();
-               } /*try {
+        try {
+            if (kitapListMAp.containsKey(Integer.parseInt(isimSecim))) {
+                kitap = (Integer.parseInt(isimSecim));
+                System.out.println(kitapListMAp.get(kitap));// kitabin ilk 4 bilgisi gelmesi ayarlanacakgi
+                System.out.println(kitap);
+                satinAlma();
+            } /*try {
 
                    //if (!kitapListMap2.containsKey(Integer.parseInt(isimSecim))) {
 
@@ -188,76 +163,24 @@ public class Methodlar extends Odeme {
 */
 
 
-           }catch (Exception e){
-               //System.out.println("Aradiginiz kitap bulunamamistir.\n Bir ust menuye yonlendiriliyorsunuz...catch");
-              // menu();
-           }
-satinAlma();
+        } catch (Exception e) {
+            //System.out.println("Aradiginiz kitap bulunamamistir.\n Bir ust menuye yonlendiriliyorsunuz...catch");
+            // menu();
+        }
+        satinAlma();
 
     }
 
 
-
-
-
-
-public void yetkiliGiris(){
-    System.out.println("lutfen parolayi giriniz:");
-    int girilenSifre= scan.nextInt();
-    if (girilenSifre==sifre) {
+    public void yetkiliGiris() {
+        System.out.println("lutfen parolayi giriniz:");
+        int girilenSifre = scan.nextInt();
+        if (girilenSifre == sifre) {
+            BilgiDegistirme yetkili = new BilgiDegistirme();
+        }
     }
-kitapList();
-
-
-    }
-
-public void mapDeneme(int kod,String fiyat){
-
-    System.out.println("fıyatını degıstırmek ıstedıgınzı urunun kodunu gırınız.");
-  kod=scan.nextInt();
-    System.out.println("fıyatı gırınız");
-  fiyat=scan.next();
-   if (kitapListMap2.containsKey(kod)){
-       Set<Map.Entry<Integer, String>> entrySeti = kitapListMap2.entrySet();
-       String entryValue;
-       String[] entryArr;
-       List<Integer> kitapList = new ArrayList<>();
-
-
-       for (Map.Entry<Integer, String> each : entrySeti) {
-           entryValue = each.getValue();
-           entryArr = entryValue.split(", ");
-           for (int i = 0; i < entryArr.length; i++) {
-              entryArr[4].replaceAll(entryArr[4],fiyat);
-              //     System.out.println(entryArr[4]);
-
-               }
-           }
-       }
-
-    System.out.println(kitapListMap2);
-   }
-
-
-
-
 
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
