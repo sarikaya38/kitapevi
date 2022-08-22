@@ -79,6 +79,7 @@ public class Odeme {
            // entryArr2.add(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2] + ", " + entryArr[3] + "\n");
         }
         System.out.println("Satın aldıgınız kıtaplar\nOdenecek Tutar:" + this.fiyat);
+        System.out.println("s");
     }
 }
 
