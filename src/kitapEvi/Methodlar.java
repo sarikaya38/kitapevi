@@ -103,7 +103,9 @@ public class Methodlar extends Odeme {
             entryArr = entryValue.split(", ");
             System.out.println(each.getKey() + entryArr[0] + " " + entryArr[1] + " " + entryArr[2] + " " + entryArr[3]);
         }
+
         kitapSecim(isimSecim);
+
     }
 
     public void kitapSecim(String isimSecim) {

@@ -40,7 +40,7 @@ public class BilgiDegistirme {
         kitapListMap.put(1012, "Harry Poter5, J.K.Rowling., 2006, 5, 10, 1, 9, 55");
         kitapListMap.put(1013, "Harry Poter6, J.K.Rowling., 2008, 5, 10, 1, 9, 45");
         kitapListMap.put(1006, "Origin, Don Brown, 2001, 5, 10, 7 ,3, 10");
-        kitapListMap.put(1007, "Cehennem, Don Brown, 2008, 5, 10, 9 ,1, 150");
+        kitapListMap.put(1007, "Cehennem, Don Brown, 2008, 5, 10, 9, 1, 150");
         return kitapListMap;
     }
 

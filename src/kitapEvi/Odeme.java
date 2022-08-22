@@ -4,11 +4,11 @@ import java.util.*;
 
 public class Odeme {
     int fiyat = 0;
-   int  kitapAlmaAdet;
+    int kitapAlmaAdet;
     int kalanStok;
     int satilanKitap;
     int gelenStok;
-     List<Integer> sepetList = new ArrayList<>();
+    List<Integer> sepetList = new ArrayList<>();
     int odenecekTutar = 0;
     Map<Integer, String> kitapListMAp = BilgiDegistirme.kitapListMAp;
 //Odeme obj1=new Odeme();
@@ -32,14 +32,14 @@ public class Odeme {
         String soyIsım = scan.next();
         musteriBilgileri.add(isim);
         musteriBilgileri.add(soyIsım);
-        System.out.println(musteriBilgileri + " almak ıstedıgınz kıtaplar" + getKitap());
+        //  System.out.println(musteriBilgileri + " almak ıstedıgınz kıtaplar" + getKitap());
 
     }
 
     String getKitap() {
         String sepetdekiKitaplar = "";
         for (int i = 0; i < sepetList.size(); i++) {
-                       sepetdekiKitaplar += kitapListMAp.get(sepetList.get(i));
+            sepetdekiKitaplar += kitapListMAp.get(sepetList.get(i));
 
         }
         return sepetdekiKitaplar;
@@ -49,7 +49,6 @@ public class Odeme {
 
         Set<Map.Entry<Integer, String>> entrySeti = kitapListMAp.entrySet();
         String entryValue;
-        System.out.println("sepet list" + sepetList);
         for (int i = 0; i < sepetList.size(); i++) {
             entryValue = kitapListMAp.get(sepetList.get(i));
             String[] entryArr;
@@ -68,7 +67,7 @@ public class Odeme {
 
         // System.out.println("Almak ıstedıgınız kıtap" + "\nOdenecek Tutar:" + fiyat);
 
-
+/*
         Set<Map.Entry<Integer, String>> entrySeti = kitapListMAp.entrySet();
         String entryValue;
         List<String> entryArr2 = null;
@@ -78,11 +77,11 @@ public class Odeme {
             String[] entryArr;
             // System.out.println(entryValue);
             entryArr = entryValue.split(", ");
-            System.out.println(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2]);
-            // entryArr2.add(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2] + ", " + entryArr[3] + "\n");
-        }
-        System.out.println("Satın aldıgınız kıtaplar\nOdenecek Tutar:" + this.fiyat);
-        System.out.println("s");
+           // System.out.println(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2]);
+            // entryArr2.add(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2] + ", " + entryArr[3] + "\n");*/
+
+        System.out.println("Sayın " + musteriBilgileri.get(0) + " " + musteriBilgileri.get(1) + " aldıgınız kıtaplar " + getKitap() + "\n" + this.fiyat);
+
     }
 
 
