@@ -4,13 +4,18 @@ import java.util.*;
 
 public class Odeme {
     int fiyat = 0;
-    List<Integer> sepetList = new ArrayList<>();
+   int  kitapAlmaAdet;
+    int kalanStok;
+    int satilanKitap;
+    int gelenStok;
+     List<Integer> sepetList = new ArrayList<>();
     int odenecekTutar = 0;
     Map<Integer, String> kitapListMAp = BilgiDegistirme.kitapListMAp;
-
+//Odeme obj1=new Odeme();
 
     Scanner scan = new Scanner(System.in);
     List<String> musteriBilgileri = new ArrayList<>();
+
 
     void odeme() {
         System.out.println("Odeme ekranına Hosgeldınız");
@@ -34,8 +39,7 @@ public class Odeme {
     String getKitap() {
         String sepetdekiKitaplar = "";
         for (int i = 0; i < sepetList.size(); i++) {
-            //     System.out.println(kitapSecim(kitapListMap2.get(sepetList.get(i))));
-            sepetdekiKitaplar += kitapListMAp.get(sepetList.get(i));
+                       sepetdekiKitaplar += kitapListMAp.get(sepetList.get(i));
 
         }
         return sepetdekiKitaplar;
@@ -49,13 +53,12 @@ public class Odeme {
         for (int i = 0; i < sepetList.size(); i++) {
             entryValue = kitapListMAp.get(sepetList.get(i));
             String[] entryArr;
-          //  System.out.println(entryValue);
+
             entryArr = entryValue.split(", ");
             fiyat += Integer.parseInt(entryArr[7]);
         }
-       // System.out.println(fiyat);
-        return fiyat;
 
+        return fiyat;
 
 
     }
@@ -63,24 +66,43 @@ public class Odeme {
     public void odemeSonuKıtapveFıyat(int fiyat) {
 
 
-       // System.out.println("Almak ıstedıgınız kıtap" + "\nOdenecek Tutar:" + fiyat);
+        // System.out.println("Almak ıstedıgınız kıtap" + "\nOdenecek Tutar:" + fiyat);
 
 
         Set<Map.Entry<Integer, String>> entrySeti = kitapListMAp.entrySet();
         String entryValue;
-        List<String>entryArr2 = null;
-        //System.out.println("sepet list" + sepetList);
+        List<String> entryArr2 = null;
+
         for (int i = 0; i < sepetList.size(); i++) {
             entryValue = kitapListMAp.get(sepetList.get(i));
             String[] entryArr;
-           // System.out.println(entryValue);
+            // System.out.println(entryValue);
             entryArr = entryValue.split(", ");
-           System.out.println(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2]);
-           // entryArr2.add(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2] + ", " + entryArr[3] + "\n");
+            System.out.println(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2]);
+            // entryArr2.add(entryArr[0] + ", " + entryArr[1] + ", " + entryArr[2] + ", " + entryArr[3] + "\n");
         }
         System.out.println("Satın aldıgınız kıtaplar\nOdenecek Tutar:" + this.fiyat);
         System.out.println("s");
     }
+
+
+   /* public void stokBaslangıc() {
+
+        System.out.println(sepetList);
+        String entryValue;
+        entryValue = kitapListMAp.get(sepetList.get(0));
+        System.out.println(entryValue);
+        String[] entryArr;
+        entryArr = entryValue.split(", ");
+        kalanStok = Integer.parseInt(entryArr[4]);
+        System.out.println("kalanstok"+kalanStok);
+        if (kitapAlmaAdet>kalanStok){
+            System.out.println("Malesef Stoklarımızda"+kalanStok+"kadar kitap bulunmamaktadır.\nTekrar secım yapmanız ıcın bır ust menuye donduruluyorsunuz");
+                   satinAlma();
+        }
+
+    }
+    public void satinAlma(){}*/
 }
 
 

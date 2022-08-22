@@ -25,9 +25,7 @@ public class Methodlar extends Odeme {
 
     int y = 1;
     String isimSecim;
-    int kalanStok;
-    int satilanKitap;
-    int gelenStok;
+
     int kitap;
 
     Scanner scan = new Scanner(System.in);
@@ -42,8 +40,8 @@ public class Methodlar extends Odeme {
         int secim = scan.nextInt();
         switch (secim) {
             case 1:
-                sepetList.add(kitap);
-                System.out.println("Sepetinizde ki kitaplar : " + sepetList);
+                this.sepetList.add(kitap);
+                                System.out.println("Sepetinizde ki kitaplar : " + sepetList);
                 System.out.println("Sepete yeni kitap eklemek icin Y ye basiniz odeme sayafasina gitmek icin Q ya basiniz");
                 String sepetCikis = scan.next().toUpperCase();
                 if (sepetCikis.equals("Y")) {
@@ -120,7 +118,7 @@ public class Methodlar extends Odeme {
         for (Map.Entry<Integer, String> each : entrySeti) {
             entryValue = each.getValue();
             entryArr = entryValue.split(", ");
-            for (int i = 0; i < entryArr.length; i++) {
+            for (int i = 0; i < 4; i++) {
                 if (entryArr[i].contains(isimSecim)) {
                     System.out.println(y + ". " + entryArr[0] + " " + entryArr[1] + " " + entryArr[2] + " " + entryArr[3]);
                     kitapList.add(each.getKey());
@@ -182,5 +180,11 @@ public class Methodlar extends Odeme {
 
 
 
+
+
+
 }
+
+
+
 
